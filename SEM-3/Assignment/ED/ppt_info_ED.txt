@@ -1,0 +1,35 @@
+part-1
+
+	1.
+	    .our team
+	    .problem statement
+	    .solution (4 solution)
+	    .market opportinities
+	    .product overview
+	    .business model
+	    .marketing & sale strategy
+	    .competitor analysis
+	    . financial projections & funding ask
+	    .predicted grow
+	    .thanks
+
+part-2
+
+	1.empathize 
+	    . user personas - 3 users
+	    . empathy maping - 3 users
+
+	2.define 
+	    . problem
+	    . solution
+
+	3. ideate
+	    .brainstorming
+	    .mind mapping
+
+	4. prototype
+	    .market research
+	    .market analysis
+	
+	5. test
+	    .Pivot(if this is idea is failed then what is subsitude idea)

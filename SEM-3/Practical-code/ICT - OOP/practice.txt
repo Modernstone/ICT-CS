@@ -1,0 +1,41 @@
+1. Write a function `add` that takes one parameter (`element`) and adds it to an existing array or collection.
+
+2. Write a function `add` that takes two parameters (`index`, `element`) and adds the element at the specified index in an array or collection.
+
+3. Write a function `addAll` that takes one parameter (a collection) and adds all elements from the collection to an existing collection.
+
+4. Write a function `addAll` that takes two parameters (`index`, `collection`) and adds all elements from the collection starting at the specified index in the existing collection.
+
+5. Initialize two arrays and demonstrate the use of the `add` functions with these arrays.
+
+6. Write a function `get` that takes one parameter (`index`) and returns the element at the specified index from an array or collection.
+
+7. Write a function `set` that takes two parameters (`index`, `element`) and updates the element at the specified index in an array or collection.
+
+8. Write a function `reverse` that takes one parameter (an instance of an array object) and reverses the elements in the array.
+
+9. Write a `sort` method that takes one parameter (an array or collection) and sorts its elements.
+
+10. Write a function `remove` that takes one parameter (`index`) and removes the element at the specified index from an array or collection.
+
+11. Write a function `remove` that removes a specified element from an array or collection.
+
+12. Write a function `removeAll` that takes one parameter (a collection) and removes all elements from the current collection that are contained in the specified collection.
+
+13. Write a function `clear` that clears all elements from a collection or array.
+
+14. Write a function to remove duplicate elements from a collection, using the `contains` function with one parameter (`element`).
+
+15. Demonstrate how to use `LinkedHashSet` to maintain the order of insertion while removing duplicates.
+
+16. Write a function `contains` that checks if a collection contains a specified element.
+
+17. Write a function `containsAll` that checks if a collection contains all elements from another collection.
+
+18. Write a function `indexOf` that returns the index of a specified element in an array or collection.
+
+19. Write a function `lastIndexOf` that returns the last index of a specified element in an array or collection.
+
+20. Write a function `retainAll` that takes one parameter (a collection) and retains only the elements in the current collection that are contained in the specified collection.
+
+21. Write a function `isEmpty` that checks if an array or collection is empty.
