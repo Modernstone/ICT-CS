@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication - Tutorial Website</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <!-- Authentication Container -->
+    <div class="auth-container">
+        <!-- Sign Up Form -->
+        <div class="auth-box">
+            <h2>Sign Up</h2>
+            <form id="signup-form" onsubmit="return handleSignUp()">
+                <input type="text" placeholder="First Name" id="firstName" required>
+                <input type="text" placeholder="Last Name" id="lastName" required>
+                <input type="text" placeholder="Contact Number" id="contactNumber" required>
+                <input type="email" placeholder="Email Address" id="emailAddress" required>
+                <input type="password" placeholder="Password" id="password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Login Form -->
+        <div class="auth-box">
+            <h2>Login</h2>
+            <form id="login-form" onsubmit="return handleLogin()">
+                <input type="email" placeholder="Email Address" id="loginEmail" required>
+                <input type="password" placeholder="Password" id="loginPassword" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for Authentication -->
+    <script>
+        // Sign Up Function
+        function handleSignUp() {
+            const email = document.getElementById('emailAddress').value;
+            const contactNumber = document.getElementById('contactNumber').value;
+            const password = document.getElementById('password').value;
+            const contactPattern = /^[789]\d{9}$/;
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+            if (!contactPattern.test(contactNumber)) {
+                alert('Please enter a valid 10-digit contact number starting with 7, 8, or 9.');
+                return false;
+            }
+
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+
+            // Store user credentials temporarily (for demo purposes)
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', password);
+            alert('Sign Up Successful! You can now log in.');
+            return true;
+        }
+
+        // Login Function
+        function handleLogin() {
+            const loginEmail = document.getElementById('loginEmail').value;
+            const loginPassword = document.getElementById('loginPassword').value;
+
+            // Retrieve stored credentials
+            const storedEmail = localStorage.getItem('email');
+            const storedPassword = localStorage.getItem('password');
+
+            // Authentication
+            if (loginEmail === storedEmail && loginPassword === storedPassword) {
+                alert('Login Successful!');
+                window.location.href = 'index.html';  // Redirect to index.html
+            } else {
+                alert('Invalid Email or Password. Please try again.');
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

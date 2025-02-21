@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armstrong and Palindrome Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: #e74c3c;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter a Three-Digit Number</h2>
+        <input type="number" id="threeDigit" min="100" max="999">
+        <button onclick="checkArmstrong()">Check Armstrong</button>
+        <button ondblclick="checkPalindrome()">Check Palindrome</button>
+        <p id="checkResult"></p>
+    </div>
+
+    <script>
+        const isArmstrong = (num) => {
+            let sum = 0;
+            let temp = num;
+            while (temp > 0) {
+                let digit = temp % 10;
+                sum += digit ** 3;
+                temp = Math.floor(temp / 10);
+            }
+            return sum === num;
+        }
+
+        const isPalindrome = (num) => {
+            let str = num.toString();
+            return str === str.split("").reverse().join("");
+        }
+
+        function checkArmstrong() {
+            let num = parseInt(document.getElementById("threeDigit").value);
+
+            if (isNaN(num) || num < 100 || num > 999) {
+                alert("Please enter a three-digit number.");
+                return;
+            }
+
+            let result = isArmstrong(num) ? "Armstrong Number" : "Not an Armstrong Number";
+            document.getElementById("checkResult").innerHTML = result;
+        }
+
+        function checkPalindrome() {
+            let num = parseInt(document.getElementById("threeDigit").value);
+
+            if (isNaN(num) || num < 100 || num > 999) {
+                alert("Please enter a three-digit number.");
+                return;
+            }
+
+            let result = isPalindrome(num) ? "Palindrome Number" : "Not a Palindrome Number";
+            document.getElementById("checkResult").innerHTML = result;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: #8e44ad;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #732d91;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter a Number (1 to 9)</h2>
+        <input type="number" id="number" min="1" max="9">
+        <button onclick="findFactorial()">Find Factorial</button>
+        <p id="factorialResult"></p>
+    </div>
+
+    <script>
+        function factorial(num) {
+            if (num <= 1) return 1;
+            return num * factorial(num - 1);
+        }
+
+        function findFactorial() {
+            let num = parseInt(document.getElementById("number").value);
+
+            if (isNaN(num) || num < 1 || num > 9) {
+                alert("Please enter a number between 1 and 9.");
+                return;
+            }
+
+            let result = factorial(num);
+            document.getElementById("factorialResult").innerHTML = 
+                `Factorial of ${num} is ${result}`;
+        }
+    </script>
+</body>
+</html>

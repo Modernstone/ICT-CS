@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Direct Intialization
+        /*
+        var a = 10;
+        var b = 20
+        console.log("Addition of this two numbers is "+(a+b));
+        console.log("Subtraction of this two numbers is "+(a-b));
+        console.log("Multiplication of this two numbers is "+(a*b));
+        console.log("Division of this two numbers is "+(a/b));
+        console.log("Module of this two numbers is "+(a%b));
+        */
+        
+        //Indirect Intialization
+        /*
+        var a,b;
+        var sum=0, mul=0,sub=0,div=0,modu=0;
+        a= parseInt(prompt("Enter First Number"));
+        b= parseInt(prompt("Enter a Second Number"));
+        sum = a+b;
+        sub = a-b;
+        mul = a*b;
+        div = a/b;
+        modu = a%b;
+        console.log("Addition of this two numbers is "+sum);
+        console.log("Subtraction of this two numbers is "+sub);
+        console.log("Multiplication of this two numbers is "+mul);
+        console.log("Division of this two numbers is "+div);
+        console.log("Module of this two numbers is "+modu);
+        */
+       //Salary
+       /*
+       var salary=0.00
+       var da=0.00,hra=0.00,gross=0.00,pf=0.00,net=0.00
+       salary = parseFloat(prompt("Enter Your Salary"));
+       if (salary>=10000 && salary<=20000)
+       {
+        da= salary*0.05;
+        hra= salary*0.10;
+        gross= salary+da+hra;
+        pf= gross*0.5;
+        net= gross-pf;
+        console.log("DA of salary is:"+da);
+        console.log("HRA of salary is: "+hra);
+        console.log("gross of salary is:"+gross);
+        console.log("pf of salary is: "+pf);
+        console.log("net of salaru is: "+net);
+       }
+       else if(salary>20000 && salary<=30000)
+       {
+       da= salary*0.10;
+       hra= salary*0.20;
+       gross= salary+da+hra;
+       pf= gross*0.5;
+       net= gross-pf;
+       console.log("DA of salary is:"+da);
+       console.log("HRA of salary is: "+hra);
+       console.log("gross of salary is:"+gross);
+       console.log("pf of salary is: "+pf);
+       console.log("net of salaru is: "+net);
+       }
+       else if(salary>30000 && salary<=40000)
+       {
+        da= salary*0.15;
+       hra= salary*0.25;
+       gross= salary+da+hra;
+       pf= gross*0.5;
+       net= gross-pf;
+       console.log("DA of salary is:"+da);
+       console.log("HRA of salary is: "+hra);
+       console.log("gross of salary is:"+gross);
+       console.log("pf of salary is: "+pf);
+       console.log("net of salaru is: "+net);
+       }
+*/
+       
+      //Greater Than Three numbers
+      /*
+      var a,b,c;
+      a= parseInt(prompt("Enter First Number"));
+      b= parseInt(prompt("Enter a Second Number"));
+      c= parseInt(prompt("Enter a Third Number"));
+      if(a>b && a>c)
+      {
+          console.log(a+" is greater than "+b+" and "+c);
+      }
+      else if(b>a && b>c)
+      {
+          console.log(b+" is greater than "+a+" and "+c);
+      }
+      else
+      {
+          console.log(c+" is greater than "+a+" and "+b);
+      }
+    */
+   //Simple Intrest and Compound Intrest
+        var SI=0,CI=0;
+        let P= parseFloat(prompt("Enter a Principle Amount"));
+        let R= parseFloat(prompt("Enter a Rate of Intrest"));
+        let T= parseFloat(prompt("Enter a Time"));
+        SI = console.log("Simple Interest is "+((P*R*T)/100));
+        CI = console.log("Coumpond Intrest is:"+((P*(1+R/100)**T)))
+    </script>
+</body>
+</html>
