@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tutorial</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+        <h1>JavaScript Methods and Their Usage</h1>
+    </header>
+
+    <!-- Navigation Bar (Updated to Match index.html) -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="html.html">HTML</a></li>
+            <li><a href="css.html">CSS</a></li>
+            <li><a href="javascript.html">JavaScript</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    
+    <main>
+        <section>
+            <h2>document.getElementById()</h2>
+            <p>Selects an element by ID.</p>
+            <pre><code>document.getElementById("demo").innerHTML = "Hello!";</code></pre>
+        </section>
+
+        <section>
+            <h2>console.log()</h2>
+            <p>Logs messages to the console.</p>
+            <pre><code>console.log("Hello, world!");</code></pre>
+        </section>
+
+        <section>
+            <h2>alert()</h2>
+            <p>Displays an alert box.</p>
+            <pre><code>alert("Welcome to JavaScript!");</code></pre>
+        </section>
+
+        <section>
+            <h2>setTimeout()</h2>
+            <p>Executes a function after a delay.</p>
+            <pre><code>setTimeout(function() { alert("Hello!"); }, 2000);</code></pre>
+        </section>
+
+        <section>
+            <h2>fetch()</h2>
+            <p>Makes HTTP requests.</p>
+            <pre><code>
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => console.log(data));
+            </code></pre>
+        </section>
+
+        <!-- Add more functions as needed -->
+
+    </main>    
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Tutorial Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body class="bg-light">
+
+    <div class="container mt-4">
+        <h2 class="text-center text-primary">Employee Management System</h2>
+
+        <div class="card shadow p-4 mt-3">
+            <form id="employeeForm">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="form-label">Employee ID:</label>
+                        <input type="text" id="empId" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Employee Name:</label>
+                        <input type="text" id="empName" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Department:</label>
+                        <select id="empDept" class="form-select">
+                            <option>IT</option>
+                            <option>HR</option>
+                            <option>Finance</option>
+                            <option>Marketing</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <label class="form-label">Post:</label>
+                        <input type="text" id="empPost" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Salary:</label>
+                        <input type="number" id="empSalary" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Contact Number:</label>
+                        <input type="text" id="empContact" class="form-control" required>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-primary mt-3 w-100" id="addEmployee">Add Employee</button>
+            </form>
+        </div>
+
+        <div class="mt-4">
+            <h4>Employee Records</h4>
+
+            <!-- Search Bar -->
+            <input type="text" id="searchEmployee" class="form-control my-2" placeholder="Search by Employee Name...">
+
+            <table class="table table-bordered table-striped mt-3">
+                <thead class="table-primary">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Post</th>
+                        <th>Salary</th>
+                        <th>Contact</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeTable"></tbody>
+            </table>
+
+            <button class="btn btn-success" id="sortAsc">Sort A-Z</button>
+            <button class="btn btn-danger" id="sortDesc">Sort Z-A</button>
+        </div>
+    </div>
+
+    <script>
+        class Employee {
+            constructor(id, name, department, post, salary, contact) {
+                this.id = id;
+                this.name = name;
+                this.department = department;
+                this.post = post;
+                this.salary = salary;
+                this.contact = contact;
+            }
+        }
+
+        let employees = [];
+
+        function displayEmployees() {
+            let tableContent = "";
+            employees.forEach((emp, index) => {
+                tableContent += `
+                    <tr>
+                        <td>${emp.id}</td>
+                        <td>${emp.name}</td>
+                        <td>${emp.department}</td>
+                        <td>${emp.post}</td>
+                        <td>${emp.salary}</td>
+                        <td>${emp.contact}</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm" onclick="editEmployee(${index})">Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteEmployee(${index})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            });
+            $("#employeeTable").html(tableContent);
+        }
+
+        $("#addEmployee").click(function () {
+            let id = $("#empId").val().trim();
+            let name = $("#empName").val().trim();
+            let department = $("#empDept").val();
+            let post = $("#empPost").val().trim();
+            let salary = $("#empSalary").val().trim();
+            let contact = $("#empContact").val().trim();
+
+            if (id && name && post && salary && contact) {
+                let newEmployee = new Employee(id, name, department, post, salary, contact);
+                employees.push(newEmployee);
+                displayEmployees();
+                $("#employeeForm")[0].reset();
+            } else {
+                alert("Please fill all fields!");
+            }
+        });
+
+        function editEmployee(index) {
+            let emp = employees[index];
+
+            $("#empId").val(emp.id);
+            $("#empName").val(emp.name);
+            $("#empDept").val(emp.department);
+            $("#empPost").val(emp.post);
+            $("#empSalary").val(emp.salary);
+            $("#empContact").val(emp.contact);
+
+            $("#addEmployee").text("Update Employee").off("click").click(function () {
+                employees[index] = new Employee(
+                    $("#empId").val().trim(),
+                    $("#empName").val().trim(),
+                    $("#empDept").val(),
+                    $("#empPost").val().trim(),
+                    $("#empSalary").val().trim(),
+                    $("#empContact").val().trim()
+                );
+                displayEmployees();
+                $("#employeeForm")[0].reset();
+                $("#addEmployee").text("Add Employee").off("click").click(addEmployee);
+            });
+        }
+
+        function deleteEmployee(index) {
+            if (confirm("Are you sure you want to delete this employee?")) {
+                employees.splice(index, 1);
+                displayEmployees();
+            }
+        }
+
+        $("#sortAsc").click(function () {
+            employees.sort((a, b) => a.name.localeCompare(b.name));
+            displayEmployees();
+        });
+
+        $("#sortDesc").click(function () {
+            employees.sort((a, b) => b.name.localeCompare(a.name));
+            displayEmployees();
+        });
+
+        $("#searchEmployee").on("keyup", function () {
+            let searchText = $(this).val().toLowerCase();
+            $("#employeeTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+            });
+        });
+
+    </script>
+
+</body>
+</html>
