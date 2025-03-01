@@ -1,0 +1,10 @@
+vishva1@gnu.ac.in
+vishva2@gnu.ac.in
+vishva3@gnu.ac.in
+vishva4@gnu.ac.in
+vishva5@gnu.ac.in
+vishva6@gnu.ac.in
+vishva7@gnu.ac.in
+vishva8@gnu.ac.in
+vishva9@gnu.ac.in
+vishva10@gnu.ac.in
